@@ -7,8 +7,17 @@ function createUser($fname, $username, $password, $email, $userlvl){
   //echo $userString;
 
   $userQuery = mysqli_query($link, $userString);
+
   if($userQuery){
+
+    $to      = $email;
+    $subject = 'Login Information';
+    $message = " Hi {$fname} your user name is: {$username} and your password is: {$password}. Click the link to login: <a>index.php</a>" ;
+
+    mail($to, $subject, $message);
+
     redirect_to("admin_index.php?");
+
   }else{
     $message = "there was a problem setting up this user.";
 
@@ -18,8 +27,6 @@ function createUser($fname, $username, $password, $email, $userlvl){
 
   mysqli_close($link);
 }
-
-
 
 
 

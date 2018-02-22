@@ -15,16 +15,34 @@ require_once('phpscripts/config.php');
   <head>
     <meta charset="utf-8">
     <title>CMS Portal</title>
+      <link rel="stylesheet" href="../css/main.css">
   </head>
   <body>
-    <h1>Welcome Company Name - hi</h1>
+
+<div class="title">
     <?php
-    echo "<h2> Hi -{$_SESSION['user_name']}</h2>";
+    echo "<h1> Hi {$_SESSION['user_name']} welcome!</h1>";
     ?>
-<a href="admin_createuser.php">Create User</a>
-<a href="phpscripts/caller.php?caller_id=logout">Logout</a>
+</div>
 
+    <p>
+    <?php
+    if (isset($_GET['user_date'])) {
 
+      $date=$_GET['user_date'];
+
+      $myQuery = "SELECT {$date} FROM tbl_user WHERE user_id={$id}";
+    //echo $myQuery;
+      $result = mysqli_query($link, $myQuery);
+    //echo $result;
+      //$row = mysqli_fetch_assoc($result);
+    }
+    echo "<p> {$result} </p>";
+    ?>
+  </p>
+
+    <a class="link1 click" href="admin_createuser.php">Create User</a>
+    <a class="click" href="phpscripts/caller.php?caller_id=logout">Logout</a>
 
   </body>
 </html>

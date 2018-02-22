@@ -1,68 +1,68 @@
 <?php
+//init_set('display_errors', 1);//mac
+//error_reporting(E_All); //mac
 
-//ini_set('display_errors',1); //MAC
-//error_reporting(E_All); //MAC
 require_once('admin/phpscripts/config.php');
-if(isset($_GET['filter'])){
-  $tbl = "tbl_movies";
-  $tbl2 ="tbl_genre";
-  $tbl3 = "tbl_mov_genre";
-  $col="movies_id";
-  $col2 = "genre_id";
-  $col3 = "genre_name";
-  $filter= $_GET['filter'];
 
-  $getMovies = filterType($tbl,$tbl2, $tbl3, $col, $col2, $col3, $filter);
+//what ip address youre signing in at
+//test it localhost/MMED_3014_18/admin/admin_login.php
+//php.net there are $_SERVER options
+$ip = $_SERVER['REMOTE_ADDR'];
+//echo $ip;
 
-}else{
-  $tbl= "tbl_movies";
-  $getMovies= getAll($tbl);
+if (isset($_POST['submit'])) {
+  //trim gets rid of whitespace
+  $username = trim($_POST['username']);
+  $password = trim($_POST['password']);
+
+  if ($username !=="" && $password !=="") {
+  //  echo "you can type";
+  $result = logIn($username, $password, $ip);
+  $message = $result;
+  }else{
+    $message ="Please fill in the required fields";
+    //echo $message;
+  }
 }
-
 
 
 
  ?>
 
-<!doctype html>
+
+<!DOCTYPE html>
 <html>
-<head>
-<meta charset="UTF-8">
-<title>Welcome to the Finest Selection of Blu-rays on the internets!</title>
-</head>
-<body>
+  <head>
+    <meta charset="utf-8">
+    <title>CMS Portal Login</title>
+    <link rel="stylesheet" href="css/main.css">
+  </head>
+  <body>
+    <div class="box">
 
-<?php
-include('includes/nav.html');
-if(!is_string($getMovies)){
-  while($row= mysqli_fetch_array($getMovies)){
-    echo "<img src=\"images/{$row['movies_cover']}\" alt= \"{$row['movies_title']}\">
-    <h2>{$row['movies_title']}</h2>
-    <p>{$row['movies_year']}</p>
-    <a href=\"details.php?id={$row['movies_id']}\">More details ...</a>
-    <br><br>
-
-    ";
-  }
-}else{
-echo "<p class=\"error\">{$getMovies} </p>";
-}
-
-include('includes/footer.html');
-
-
-
-?>
+    <h1 class="center-t">Welcome</h1>
+    <p class="center">
+    <?php
+      if(!empty($message)){
+        echo $message;
+      }
+     ?>
+     </p>
+      <form action="index.php" method="post">
+        <label class="center">Username :</label>
+        <input type="text" name="username" value="">
+          <br><br>
+        <label class="center">Password :</label>
+        <input type="text" name="password" value="">
+          <br><br>
+        <input class="center-btn" type="submit" name="submit" value="Enter">
 
 
 
 
+      </form>
 
 
-
-
-
-
-
-</body>
+    </div>
+  </body>
 </html>

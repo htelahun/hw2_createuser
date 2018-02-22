@@ -1,0 +1,92 @@
+body {
+  background-color: #f5deb3;
+
+}
+ h1{
+   font-size: 30px;
+   padding: 2%;
+ }
+
+ p{
+   margin-left: 10%;
+ }
+
+.title{
+  margin-left: 520px;
+  margin-bottom: 10%;
+}
+
+.title1{
+  margin-left: 350px;
+  margin-bottom: 5%;
+}
+
+form label {
+  margin-right: 100px;
+}
+
+form label input{
+  padding: 10px;
+}
+
+.last{
+  margin-right: 120px;
+}
+
+.box {
+  background-color: #ffff;
+  width: 400px;
+  height: 300px;
+  margin: 15% 35%;
+  padding-top: 20px;
+  box-shadow: 2px 2px 2px 2px rgba(0,0,0,0.2);
+
+}
+
+.center{
+  margin-left: 20%;
+  margin-right: 10%;
+}
+.center-t{
+  margin-left: 30%;
+}
+.center-btn{
+  padding: 10px;
+  margin-left: 40%;
+  margin-top: 2%;
+  margin-bottom: 1%;
+  border: solid 1px grey;
+  background-color: lightgrey;
+  box-shadow: 1px 1px 1px 1px rgba(0,0,0,0.2);
+    color: black;
+}
+
+.link1{
+  margin-left: 500px;
+  margin-right: 100px;
+}
+
+.click{
+  border: solid 1px grey;
+  padding: 20px;
+  background-color: lightgrey;
+  text-decoration: none;
+  color: black;
+  box-shadow: 1px 1px 1px 1px rgba(0,0,0,0.2);
+}
+
+.click2{
+  border: solid 1px grey;
+  padding: 10px;
+  background-color: lightgrey;
+  text-decoration: none;
+  color: black;
+  box-shadow: 1px 1px 1px 1px rgba(0,0,0,0.2);
+  margin-left:120px;
+  margin-top: 40px;
+}
+
+.mid{
+  margin-left: 400px;
+  margin-bottom: 50px;
+}
